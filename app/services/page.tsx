@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Container, Eyebrow } from "@/components/primitives";
@@ -6,83 +7,162 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Independent estimate review, preconstruction advisory, scope reconciliation, critical power feasibility, and decision support for owners and developers.",
+    "Electrical estimating, ROM support, independent estimate review, scope reconciliation, preconstruction advisory, and infrastructure risk review for contractors, GCs, owners, and developers.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: `Services | ${SITE.name}`,
     description:
-      "Independent estimate review, preconstruction advisory, scope reconciliation, critical power feasibility, and decision support.",
+      "Focused electrical estimating and preconstruction advisory services for early cost clarity and scope discipline.",
     url: `${SITE.url}/services`,
+    images: [
+      {
+        url: "/images/services/preconstruction-intelligence.png",
+        width: 2752,
+        height: 1536,
+        alt: "Concept visual representing electrical preconstruction intelligence",
+      },
+    ],
   },
 };
 
 const services = [
   {
     n: "01",
-    title: "Independent estimate and peer review",
+    title: "Pre-design electrical estimating and ROM support",
     summary:
-      "Third-party validation of contractor or in-house electrical estimating packages before procurement and contract execution.",
+      "Budgetary electrical cost opinions when the project needs a defensible early number before the documents are ready for hard bid pricing.",
+    image: "/images/services/preconstruction-intelligence.png",
+    imageAlt:
+      "Concept visual representing early electrical estimating and infrastructure planning",
+    imageNote: "Concept / strategy visual",
     deliverables: [
-      "Line-item review of labor, material, and equipment assumptions",
-      "Quantity and takeoff sampling against drawings and specifications",
-      "Risk-weighted commentary on missing scope and soft assumptions",
-      "Short written report sized for an executive read",
+      "ROM-level electrical cost framing based on available narratives, drawings, and assumptions",
+      "Major system and service-entrance cost drivers identified early",
+      "Clear exclusions, assumptions, and confidence limits",
+      "Short decision memo suitable for owner, GC, or contractor review",
     ],
-    fit: "Owners and developers requesting a second opinion before contract award. GCs and ECs validating internal bids before submission.",
+    fit: "Owners, developers, GCs, and electrical contractors who need an early electrical number before the design is complete.",
   },
   {
     n: "02",
-    title: "Electrical preconstruction advisory",
+    title: "Independent estimate and peer review",
     summary:
-      "Early-stage strategy on projects where power, coordination, constructability, and budget certainty matter from day one.",
+      "Third-party review of electrical estimating packages before procurement, bid submission, contract award, or capital approval.",
+    image: "/images/services/independent-estimate-peer-review.png",
+    imageAlt:
+      "Concept visual representing independent electrical estimate peer review",
+    imageNote: "Concept / strategy visual",
     deliverables: [
-      "Constructability commentary on draft drawings and narratives",
-      "Long-lead equipment and procurement risk callouts",
-      "Trade-coordination scope boundary mapping (Division 26 / 27 / 28)",
-      "Working sessions with design and ownership teams",
+      "Line-item review of labor, material, equipment, and subcontractor assumptions",
+      "Quantity and takeoff sampling against drawings and specifications",
+      "Risk-weighted commentary on missing scope, allowances, and soft assumptions",
+      "Concise written findings sized for an executive or preconstruction read",
     ],
-    fit: "Owner teams in early design through DD. Developers structuring RFPs and pricing assumptions before full design.",
+    fit: "Electrical contractors validating a bid, GCs reviewing trade coverage, or owners and developers seeking a second opinion.",
   },
   {
     n: "03",
-    title: "Scope gap and risk reconciliation",
+    title: "Scope reconciliation and risk review",
     summary:
-      "Structured review of where drawings, specifications, estimates, responsibilities, and assumptions fail to agree.",
+      "Structured review of where drawings, specifications, estimates, inclusions, exclusions, and trade responsibilities fail to agree.",
+    image: "/images/services/oh-conduit.jpeg",
+    imageAlt:
+      "Field-installed overhead electrical conduit showing real-world routing and coordination complexity",
+    imageNote: "Field credibility visual",
     deliverables: [
-      "Cross-document gap matrix flagging conflicts and silences",
-      "Responsibility-matrix commentary across trades and utilities",
-      "Identified ambiguity in performance specs and basis-of-design notes",
-      "Recommended clarifications before pricing or award",
+      "Gap matrix flagging conflicts, silences, and ambiguous responsibility boundaries",
+      "Division 26, 27, and 28 scope commentary across trades and utility interfaces",
+      "Review of inclusions, exclusions, allowances, alternates, and basis-of-design notes",
+      "Recommended clarifications before pricing, award, or change exposure hardens",
     ],
-    fit: "Projects mid-bid or pre-award where scope drift, change orders, or claim exposure is already visible.",
+    fit: "Bid, pre-award, and early construction teams facing scope drift, unclear responsibility, or claim exposure.",
   },
   {
     n: "04",
-    title: "Critical power and infrastructure feasibility",
+    title: "Electrical preconstruction advisory",
     summary:
-      "Electrical-first feasibility for power-dense projects: data centers, AI infrastructure, industrial facilities, and major service entrances.",
+      "Early-stage electrical judgment for projects where constructability, coordination, procurement, and budget certainty matter from day one.",
+    image: "/images/services/control-cab.jpeg",
+    imageAlt:
+      "Electrical control cabinet field photo representing practical preconstruction and coordination judgment",
+    imageNote: "Field credibility visual",
     deliverables: [
-      "Service capacity and utility coordination feasibility commentary",
-      "Backup and redundancy approach review (UPS, generation, ATS, paralleling)",
-      "Single-line and basis-of-design sanity check",
-      "Cost-band framing for high-density power scenarios",
+      "Constructability commentary on drawings, narratives, and design progression",
+      "Long-lead equipment and procurement risk callouts",
+      "Trade-coordination and system-boundary mapping",
+      "Working sessions with owner, GC, electrical contractor, or design teams",
     ],
-    fit: "Owners and developers evaluating sites or schemes before committing to an engineering and procurement path.",
+    fit: "Teams in concept, schematic design, design development, or GMP preparation who need field-informed electrical input.",
   },
   {
     n: "05",
-    title: "Owner and developer decision support",
+    title: "Critical power and infrastructure feasibility",
     summary:
-      "Plain, defensible technical reporting for leadership teams making capital decisions before full design or construction pricing is complete.",
+      "Electrical-first feasibility review for power-dense projects, major service entrances, backup power, and infrastructure-heavy decisions.",
+    image: "/images/services/inside-transformer-480v.jpeg",
+    imageAlt:
+      "Inside view of electrical transformer equipment representing field-scale power infrastructure review",
+    imageNote: "Field credibility visual",
     deliverables: [
-      "Executive briefs framing risk, options, and tradeoffs",
-      "Independent commentary alongside engineer or contractor proposals",
-      "Milestone validation at key go / no-go decision points",
-      "Direct access to the principal for follow-up questions",
+      "Service capacity and utility coordination feasibility commentary",
+      "Backup, redundancy, UPS, generator, ATS, and paralleling approach review",
+      "Single-line, equipment, and basis-of-design sanity checks",
+      "Cost-band framing for high-density or infrastructure-heavy electrical scenarios",
     ],
-    fit: "Owner and developer leadership facing committee, board, or capital-allocation decisions on electrical-heavy projects.",
+    fit: "Owners, developers, GCs, and electrical contractors evaluating site power, critical systems, or infrastructure-heavy scope.",
   },
 ];
+
+const engagementTypes = [
+  {
+    title: "Rapid ROM or budget opinion",
+    body: "A short, assumption-bound cost view when the project needs direction before full design or bid documents exist.",
+  },
+  {
+    title: "Focused peer review",
+    body: "A review of a specific estimate, bid package, scope issue, or procurement decision with written findings.",
+  },
+  {
+    title: "Scope reconciliation pass",
+    body: "A matrix-style review of mismatched drawings, specifications, inclusions, exclusions, and responsibility boundaries.",
+  },
+  {
+    title: "Advisory working session",
+    body: "A restrained engagement for teams that need direct electrical preconstruction judgment around a defined decision.",
+  },
+];
+
+const faqItems = [
+  {
+    q: "Who does Antares Resilience serve?",
+    a: "Antares serves electrical contractors, general contractors, owners, and developers that need clearer electrical estimating, scope, or preconstruction judgment before making a project decision.",
+  },
+  {
+    q: "Does Antares provide full design engineering?",
+    a: "No. Antares provides electrical estimating, estimate review, scope reconciliation, and preconstruction advisory. It does not replace the engineer of record, licensed design services, or contractor means and methods.",
+  },
+  {
+    q: "When is the right time to involve Antares?",
+    a: "The best time is before budget assumptions, bid strategy, procurement paths, or scope boundaries become hard commitments. Early review is usually less expensive than late correction.",
+  },
+  {
+    q: "What information is useful to start?",
+    a: "Useful inputs include drawings, specifications, narratives, estimates, takeoff records, addenda, scope letters, exclusions, alternates, and the specific decision the team needs to make.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
 
 export default function ServicesPage() {
   return (
@@ -92,10 +172,10 @@ export default function ServicesPage() {
         <Container className="pt-20 pb-16 sm:pt-24 sm:pb-20">
           <Eyebrow>Services</Eyebrow>
           <h1 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight text-[var(--color-fg)] max-w-3xl">
-            Five focused advisory lines, all anchored in electrical reality.
+            Focused electrical estimating and preconstruction advisory.
           </h1>
           <p className="mt-6 max-w-2xl text-[16px] leading-relaxed text-[var(--color-fg-muted)]">
-            Each engagement is sized to the decision in front of you, not to a retainer template. Deliverables are written to be defensible to engineers, executives, and counsel alike.
+            Antares supports electrical contractors, general contractors, owners, and developers when an electrical estimate, scope boundary, or infrastructure assumption needs an independent read before the decision hardens.
           </p>
         </Container>
       </section>
@@ -120,6 +200,16 @@ export default function ServicesPage() {
                   <p className="mt-4 text-[14px] leading-relaxed text-[var(--color-fg-muted)]">
                     {s.summary}
                   </p>
+                  <div className="mt-6 border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-2">
+                    <Image
+                      src={s.image}
+                      alt={s.imageAlt}
+                      width={1200}
+                      height={800}
+                      sizes="(min-width: 1024px) 28vw, 100vw"
+                      className="aspect-[4/3] w-full object-cover"
+                    />
+                  </div>
                 </header>
                 <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
@@ -156,14 +246,62 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      {/* CTA */}
+      {/* Engagement types */}
       <section className="border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]">
+        <Container className="py-16 sm:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+            <div className="lg:col-span-4">
+              <Eyebrow>Engagement types</Eyebrow>
+              <h2 className="mt-3 text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--color-fg)]">
+                Sized to the decision, not a retainer template.
+              </h2>
+            </div>
+            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
+              {engagementTypes.map((item) => (
+                <div key={item.title}>
+                  <p className="text-[var(--color-fg)] font-medium">{item.title}</p>
+                  <p className="mt-2 text-[14px] leading-relaxed text-[var(--color-fg-muted)]">
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-t border-[var(--color-border)]">
+        <Container className="py-16 sm:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+            <div className="lg:col-span-4">
+              <Eyebrow>Common questions</Eyebrow>
+              <h2 className="mt-3 text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--color-fg)]">
+                Clear boundaries for the work.
+              </h2>
+            </div>
+            <div className="lg:col-span-8 divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
+              {faqItems.map((item) => (
+                <div key={item.q} className="py-6">
+                  <h3 className="text-[var(--color-fg)] font-medium">{item.q}</h3>
+                  <p className="mt-3 text-[14px] leading-relaxed text-[var(--color-fg-muted)]">
+                    {item.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* CTA */}
+      <section className="border-t border-[var(--color-border)]">
         <Container className="py-16 sm:py-20">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             <div className="max-w-xl">
               <Eyebrow>Engage</Eyebrow>
               <h2 className="mt-3 text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--color-fg)]">
-                Describe the decision. We will scope from there.
+                Describe the project and the decision point.
               </h2>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
@@ -171,18 +309,22 @@ export default function ServicesPage() {
                 href="/contact"
                 className="inline-flex items-center justify-center bg-[var(--color-accent)] text-[var(--color-accent-fg)] px-5 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
               >
-                Request a consultation
+                Discuss a Project
               </Link>
-              <a
-                href={`mailto:${SITE.contactEmail}`}
+              <Link
+                href="/about"
                 className="inline-flex items-center justify-center border border-[var(--color-border-strong)] text-[var(--color-fg)] px-5 py-3 text-sm font-medium hover:border-[var(--color-fg)] transition-colors"
               >
-                {SITE.contactEmail}
-              </a>
+                About the practice
+              </Link>
             </div>
           </div>
         </Container>
       </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     </>
   );
 }

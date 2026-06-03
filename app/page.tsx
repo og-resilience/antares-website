@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Container, Eyebrow, SectionHeading } from "@/components/primitives";
@@ -5,45 +6,54 @@ import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: `${SITE.name} | ${SITE.tagline}`,
-  description: SITE.description,
+  description:
+    "Pacific Northwest based electrical estimating, estimate review, scope reconciliation, and preconstruction advisory for electrical contractors, general contractors, owners, and developers.",
   alternates: { canonical: "/" },
   openGraph: {
     title: `${SITE.name} | ${SITE.tagline}`,
     description: SITE.description,
     url: SITE.url,
+    images: [
+      {
+        url: "/images/home/main-page-hero.jpg",
+        width: 2560,
+        height: 1136,
+        alt: "Abstract infrastructure intelligence visual for Antares Resilience",
+      },
+    ],
   },
 };
 
 const services = [
   {
     n: "01",
-    title: "Independent estimate review",
+    title: "Pre-design electrical estimating",
     body:
-      "Third-party validation of electrical estimating packages, scope reconciliation, and labor and material assumptions before procurement.",
+      "ROM and budgetary cost opinions for early project decisions, before drawings are complete enough for hard pricing.",
   },
   {
     n: "02",
-    title: "Electrical preconstruction advisory",
+    title: "Independent estimate review",
     body:
-      "Early-stage strategy for projects where power, coordination, constructability, and budget certainty matter.",
+      "Second-opinion review of electrical estimates, labor assumptions, material coverage, and contractor or in-house pricing packages.",
   },
   {
     n: "03",
-    title: "Scope gap and risk reconciliation",
+    title: "Scope reconciliation",
     body:
-      "Structured review of where drawings, estimates, responsibilities, and assumptions fail to line up.",
+      "Structured review of where drawings, specifications, inclusions, exclusions, and trade responsibilities fail to align.",
   },
   {
     n: "04",
-    title: "Critical power and infrastructure feasibility",
+    title: "Preconstruction advisory",
     body:
-      "Electrical-first feasibility for power-dense projects including data centers, AI infrastructure, industrial facilities, and major service entrances.",
+      "Electrical-first guidance for constructability, coordination, procurement sequencing, and decision risk before assumptions harden.",
   },
   {
     n: "05",
-    title: "Owner and developer decision support",
+    title: "Critical power and infrastructure feasibility",
     body:
-      "Clear technical reporting for leadership teams making capital decisions before full design or construction pricing is complete.",
+      "Early review of utility capacity, service approach, standby power, resilience requirements, and infrastructure constraints before they become budget risk.",
   },
 ];
 
@@ -51,29 +61,46 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative">
+      <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-grid bg-grid-fade opacity-60 pointer-events-none" />
-        <Container className="relative pt-20 pb-24 sm:pt-28 sm:pb-32">
-          <Eyebrow>Snohomish, WA · Pacific Northwest</Eyebrow>
-          <h1 className="mt-5 text-4xl sm:text-5xl lg:text-[56px] font-semibold tracking-tight leading-[1.05] text-[var(--color-fg)] max-w-4xl">
-            Electrical-first infrastructure intelligence for decisions that cannot afford bad assumptions.
-          </h1>
-          <p className="mt-7 max-w-2xl text-[17px] leading-relaxed text-[var(--color-fg-muted)]">
-            Antares Resilience helps owners, developers, contractors, and project teams validate electrical estimating, reconcile scope, and identify infrastructure risk before cost, schedule, procurement, and responsibility are locked in.
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row gap-3">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center bg-[var(--color-accent)] text-[var(--color-accent-fg)] px-5 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
-            >
-              Request a consultation
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center border border-[var(--color-border-strong)] text-[var(--color-fg)] px-5 py-3 text-sm font-medium hover:border-[var(--color-fg)] transition-colors"
-            >
-              Review services
-            </Link>
+        <Container className="relative pt-20 pb-20 sm:pt-28 sm:pb-28">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div className="lg:col-span-7">
+              <Eyebrow>Pacific Northwest based · Pacific Northwest and beyond</Eyebrow>
+              <h1 className="mt-5 text-4xl sm:text-5xl lg:text-[56px] font-semibold tracking-tight leading-[1.05] text-[var(--color-fg)] max-w-4xl">
+                Electrical estimating and preconstruction clarity before assumptions become commitments.
+              </h1>
+              <p className="mt-7 max-w-2xl text-[17px] leading-relaxed text-[var(--color-fg-muted)]">
+                Antares Resilience helps electrical contractors, general contractors, owners, and developers validate estimates, reconcile scope, and identify electrical infrastructure risk early enough to act.
+              </p>
+              <div className="mt-10 flex flex-col sm:flex-row gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center bg-[var(--color-accent)] text-[var(--color-accent-fg)] px-5 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
+                >
+                  Discuss a Project
+                </Link>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center justify-center border border-[var(--color-border-strong)] text-[var(--color-fg)] px-5 py-3 text-sm font-medium hover:border-[var(--color-fg)] transition-colors"
+                >
+                  Review services
+                </Link>
+              </div>
+            </div>
+            <div className="lg:col-span-5">
+              <div className="relative border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-2">
+                <Image
+                  src="/images/home/main-page-hero.jpg"
+                  alt="Abstract strategy visual representing electrical infrastructure intelligence and preconstruction decision clarity"
+                  width={2560}
+                  height={1136}
+                  priority
+                  sizes="(min-width: 1024px) 38vw, 100vw"
+                  className="aspect-[16/9] w-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </Container>
       </section>
@@ -85,18 +112,18 @@ export default function HomePage() {
             <div className="lg:col-span-4">
               <SectionHeading
                 eyebrow="What Antares does"
-                title="Power certainty and decision clarity, before construction assumptions harden."
+                title="Cost clarity and scope discipline for electrical-heavy decisions."
               />
             </div>
             <div className="lg:col-span-8 space-y-5 text-[15px] leading-relaxed text-[var(--color-fg-muted)]">
               <p>
-                On power-dense projects, electrical systems can drive twenty to forty percent of capital cost, yet decisions are routinely made with incomplete, fragmented, or unvalidated information.
+                Electrical scope often carries the assumptions that decide whether a project budget holds, a bid is defensible, or a procurement path creates avoidable risk.
               </p>
               <p>
-                Antares Resilience reviews preconstruction electrical packages with the same rigor a serious owner or estimator would apply internally. We validate quantities and labor assumptions, surface scope boundaries between trades, and flag where the drawings, the estimate, and the field will not agree.
+                Antares reviews electrical estimating and preconstruction information with field-informed judgment. We test quantities, labor logic, equipment assumptions, scope boundaries, and the gaps between drawings, specifications, and pricing narratives.
               </p>
               <p>
-                The work is restrained on purpose. Our deliverables are short, defensible, and decision-ready &mdash; not theater. Engagements are based in the Pacific Northwest and serve clients across North America.
+                {SITE.publicPositioning}
               </p>
             </div>
           </div>
@@ -109,7 +136,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
             <SectionHeading
               eyebrow="Capabilities"
-              title="Infrastructure advisory and preconstruction review."
+              title="Focused advisory lines. No platform theater."
             />
             <Link
               href="/services"
@@ -118,7 +145,7 @@ export default function HomePage() {
               View detailed services &rarr;
             </Link>
           </div>
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-border)] border border-[var(--color-border)]">
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-px bg-[var(--color-border)] border border-[var(--color-border)]">
             {services.map((s) => (
               <li
                 key={s.n}
@@ -152,14 +179,14 @@ export default function HomePage() {
             <div className="lg:col-span-7">
               <Eyebrow>Field-informed judgment</Eyebrow>
               <h2 className="mt-3 text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--color-fg)] max-w-2xl">
-                Grounded in the field. Refined in preconstruction.
+                Built from electrical construction, not generic consulting language.
               </h2>
               <div className="mt-6 space-y-5 text-[15px] leading-relaxed text-[var(--color-fg-muted)] max-w-2xl">
                 <p>
-                  Antares is led by Oliver Gribble, whose two decades in electrical construction span field electrician work through senior estimating and preconstruction management on complex industrial and commercial projects.
+                  Antares is led by Oliver Gribble, whose two decades in electrical construction span field electrician work through senior estimating and preconstruction management.
                 </p>
                 <p>
-                  We do not evaluate estimates from a purely academic standpoint. We understand how conduit is physically routed, how labor factors scale across environments, and where drawings hide the gaps that produce friction between owners, engineers, and contractors.
+                  The work is intentionally direct: read the documents, test the estimate, identify the missing scope, and give the decision-maker a clearer basis for action.
                 </p>
               </div>
               <div className="mt-8">
@@ -173,7 +200,7 @@ export default function HomePage() {
             </div>
             <aside className="lg:col-span-5 border border-[var(--color-border)] p-6 sm:p-8">
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-accent)]">
-                Practice areas
+                Practice context
               </p>
               <ul className="mt-5 space-y-3 text-[14px] text-[var(--color-fg-muted)]">
                 <li className="flex gap-3">
@@ -182,19 +209,15 @@ export default function HomePage() {
                 </li>
                 <li className="flex gap-3">
                   <span aria-hidden="true" className="mt-2 h-1 w-1 bg-[var(--color-accent)]" />
-                  <span>NEC, NFPA, and industrial controls context</span>
-                </li>
-                <li className="flex gap-3">
-                  <span aria-hidden="true" className="mt-2 h-1 w-1 bg-[var(--color-accent)]" />
                   <span>Estimate validation and labor scaling</span>
                 </li>
                 <li className="flex gap-3">
                   <span aria-hidden="true" className="mt-2 h-1 w-1 bg-[var(--color-accent)]" />
-                  <span>Utility coordination and service capacity</span>
+                  <span>Constructability and coordination review</span>
                 </li>
                 <li className="flex gap-3">
                   <span aria-hidden="true" className="mt-2 h-1 w-1 bg-[var(--color-accent)]" />
-                  <span>Critical power and redundancy review</span>
+                  <span>Utility, service capacity, and critical power context</span>
                 </li>
               </ul>
             </aside>
@@ -208,24 +231,24 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <Eyebrow>Engage</Eyebrow>
             <h2 className="mt-3 text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--color-fg)]">
-              Bring us in before assumptions become commitments.
+              Bring Antares in before the estimate becomes the plan.
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-[var(--color-fg-muted)]">
-              We accept a limited number of engagements at a time. The fastest path is a direct request describing the project and the decision in front of you.
+              Send the project context, the current decision point, and the electrical scope question you need answered.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center bg-[var(--color-accent)] text-[var(--color-accent-fg)] px-5 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
               >
-                Request a consultation
+                Discuss a Project
               </Link>
-              <a
-                href={`mailto:${SITE.contactEmail}`}
+              <Link
+                href="/services"
                 className="inline-flex items-center justify-center border border-[var(--color-border-strong)] text-[var(--color-fg)] px-5 py-3 text-sm font-medium hover:border-[var(--color-fg)] transition-colors"
               >
-                {SITE.contactEmail}
-              </a>
+                Review services
+              </Link>
             </div>
           </div>
         </Container>
