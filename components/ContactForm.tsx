@@ -13,6 +13,11 @@ type Status =
 const baseInput =
   "w-full bg-transparent border border-[var(--color-border)] px-3 py-2.5 text-[14px] text-[var(--color-fg)] placeholder:text-[var(--color-fg-subtle)] focus:border-[var(--color-accent)] focus:outline-none transition-colors";
 
+const selectInput =
+  baseInput + " bg-[var(--color-bg)] [color-scheme:dark]";
+
+const optionClass = "bg-[#111827] text-[#f8f5ed]";
+
 export function ContactForm() {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
@@ -155,13 +160,13 @@ export function ContactForm() {
           name="projectType"
           required
           defaultValue=""
-          className={baseInput}
+          className={selectInput}
         >
-          <option value="" disabled>
+          <option value="" disabled className={optionClass}>
             Select one
           </option>
           {PROJECT_TYPES.map((t) => (
-            <option key={t} value={t}>
+            <option key={t} value={t} className={optionClass}>
               {t}
             </option>
           ))}

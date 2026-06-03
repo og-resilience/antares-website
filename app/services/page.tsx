@@ -210,9 +210,6 @@ export default function ServicesPage() {
                       className="aspect-[4/3] w-full object-cover"
                     />
                   </div>
-                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--color-fg-subtle)]">
-                    {s.imageNote}
-                  </p>
                 </header>
                 <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
