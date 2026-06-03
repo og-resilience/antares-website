@@ -47,7 +47,13 @@ const services = [
     n: "04",
     title: "Preconstruction advisory",
     body:
-      "Electrical-first guidance for constructability, coordination, long-lead gear, critical power, and infrastructure risk.",
+      "Electrical-first guidance for constructability, coordination, procurement sequencing, and decision risk before assumptions harden.",
+  },
+  {
+    n: "05",
+    title: "Critical power and infrastructure feasibility",
+    body:
+      "Early review of utility capacity, service approach, standby power, resilience requirements, and infrastructure constraints before they become budget risk.",
   },
 ];
 
@@ -139,7 +145,7 @@ export default function HomePage() {
               View detailed services &rarr;
             </Link>
           </div>
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-border)] border border-[var(--color-border)]">
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-px bg-[var(--color-border)] border border-[var(--color-border)]">
             {services.map((s) => (
               <li
                 key={s.n}
