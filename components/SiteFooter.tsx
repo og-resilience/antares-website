@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 
@@ -6,13 +7,25 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-[var(--color-border)] mt-24">
       <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 py-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between text-[13px] text-[var(--color-fg-muted)]">
-        <div className="flex flex-col gap-1">
-          <p className="text-[var(--color-fg)] font-medium">
-            {SITE.name} LLC
-          </p>
-          <p>
-            {SITE.location} · {SITE.region}
-          </p>
+        <div className="flex flex-col gap-3">
+          <Link href="/" className="inline-flex w-fit" aria-label={`${SITE.name} — Home`}>
+            <Image
+              src="/images/brand/antares-resilience-logo-v01.png"
+              alt=""
+              width={147}
+              height={80}
+              className="h-8 w-auto"
+            />
+            <span className="sr-only">{SITE.name}</span>
+          </Link>
+          <div className="flex flex-col gap-1">
+            <p className="text-[var(--color-fg)] font-medium">
+              {SITE.name} LLC
+            </p>
+            <p>
+              {SITE.location} · {SITE.region} and beyond
+            </p>
+          </div>
         </div>
         <div className="flex flex-col gap-1 sm:items-end">
           <a

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV, SITE } from "@/lib/site";
@@ -15,13 +16,15 @@ export function SiteHeader() {
           className="flex items-center gap-3 group"
           aria-label={`${SITE.name} — Home`}
         >
-          <span
-            aria-hidden="true"
-            className="inline-block h-2 w-2 bg-[var(--color-accent)]"
+          <Image
+            src="/images/brand/antares-resilience-logo-v01.png"
+            alt=""
+            width={147}
+            height={80}
+            className="h-8 w-auto"
+            priority
           />
-          <span className="text-[15px] font-medium tracking-tight text-[var(--color-fg)]">
-            {SITE.name}
-          </span>
+          <span className="sr-only">{SITE.name}</span>
         </Link>
         <nav aria-label="Primary">
           <ul className="flex items-center gap-1 sm:gap-2 text-sm">
