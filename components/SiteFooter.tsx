@@ -14,7 +14,7 @@ export function SiteFooter() {
               alt=""
               width={147}
               height={80}
-              className="h-8 w-auto"
+              className="h-14 w-auto"
             />
             <span className="sr-only">{SITE.name}</span>
           </Link>
