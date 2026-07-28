@@ -10,7 +10,7 @@ export function SiteFooter() {
         <div className="flex flex-col gap-3">
           <Link href="/" className="inline-flex w-fit" aria-label={`${SITE.name} — Home`}>
             <Image
-              src="/images/brand/antares-resilience-logo-v01.png"
+              src="/images/brand/antares-resilience-logo-dark.png"
               alt=""
               width={147}
               height={80}
